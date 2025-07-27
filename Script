@@ -1,0 +1,27 @@
+package com.blue;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Flip {
+	public static void main(String[] args) {
+		WebDriver d= new EdgeDriver();
+		d.get("https://www.flipkart.com/");
+		d.manage().window().maximize();
+		Actions a= new Actions(d);
+		WebElement b=d.findElement(By.xpath("//span[text()='Fashion']"));
+		a.moveToElement(b).perform();
+		WebElement c=d.findElement(By.xpath("//a[text()='Kids']"));
+		a.moveToElement(c).perform();
+		c.click();
+		WebElement e=d.findElement(By.xpath("//h1[text()='Clothing And Accessories']"));
+		String g= e.getText();
+		System.out.println(g);
+		
+	
+	}
+
+}
